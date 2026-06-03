@@ -4,7 +4,7 @@ bl_info = {
     "name": "Auto-select strips under the playhead",
     "author": "Tintwotin, Samuel Bernou",
     "version": (1, 4),
-    "blender": (2, 90, 0),
+    "blender": (5, 0, 0),
     "location": "Sequencer > Header > Auto Select",
     "description": "Auto-selects strips under the playhead.",
     "warning": "",
@@ -75,7 +75,7 @@ def auto_select_active_strip(scene):
         return
     current_frame = bpy.context.scene.frame_current
     bpy.ops.sequencer.select_all(action="DESELECT")
-    strips = bpy.context.sequences
+    strips = bpy.context.strips
     strips = sorted(
         strips,
         key=attrgetter("channel", "frame_final_start"),
